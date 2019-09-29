@@ -9,15 +9,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class CharacterByDimentionController extends AbstractController
 {
     /**
-     * @Route("/characterbydimention", name="character_by_dimention")
+     * @Route("/characters", name="character_by_dimention")
      */
 
     public function getAllElements(GuzzleServices $guzzleService){
         $endpoint = "https://rickandmortyapi.com/api/";
-        $resource = 'location';
+        $resource = 'character';
         $items = $guzzleService->getGuzzleConnection($endpoint, $resource);
-        dd($items);die();
-        return $this->render('charactersByDimension/index.html.twig', [
+        return $this->render('character_by_dimention/index.html.twig', [
             'body' => $items
         ]);
     }
