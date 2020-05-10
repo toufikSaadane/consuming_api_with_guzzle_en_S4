@@ -23,5 +23,14 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    app.guzzleServices:
+        class: 'App\services\GuzzleServices'
+        arguments:
+            $endpoint: "https://rickandmortyapi.com/api/"
+    App\services\GuzzleServices: '@app.guzzleServices'
+
+    App\Controller\CharacterByDimentionController:
+        properties:
+            resource: 'character'
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

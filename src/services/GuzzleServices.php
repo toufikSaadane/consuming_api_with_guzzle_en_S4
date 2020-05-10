@@ -9,9 +9,16 @@ use GuzzleHttp\Client;
 
 class GuzzleServices
 {
-    public function getGuzzleConnection($endpoint, $resource){
+    private $endpoint;
 
-        $client = new Client(['base_uri' => $endpoint]);
+    public function __construct($endpoint)
+    {
+        $this->endpoint=$endpoint;
+    }
+
+    public function getGuzzleConnection($resource){
+
+        $client = new Client(['base_uri' => $this->endpoint]);
         try {
             $pagenum = 1;
             do {
