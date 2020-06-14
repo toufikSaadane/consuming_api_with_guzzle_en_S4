@@ -3,5 +3,26 @@
 {% block title %}Hello CharacterByDimentionController!{% endblock %}
 
 {% block body %}
-    <h2>toufik saadane</h2>
+    <div class="container">
+        <div class="row">
+            {% for items in pagination %}
+                {% for item in items %}
+                    <div class="col-sm-4 ">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"><bold><em>Name</em></bold>{{ item.name }}</h5>
+                                <p class="card-text"><bold><em>Status</em></bold>{{ item.status }}</p>
+                                <p class="card-text"><bold><em>Species</em></bold>{{ item.species }}</p>
+                                <p class="card-text"><bold><em>Gender</em></bold>{{ item.gender }}</p>
+                                <p class="card-text"><bold><em>Created at</em></bold>{{ item.created|date }}</p>
+                                <a href="{{ item.url }}" class="btn btn-primary">Go To see more details</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+        {{ knp_pagination_render(pagination) }}
+    </div>
 {% endblock %}
