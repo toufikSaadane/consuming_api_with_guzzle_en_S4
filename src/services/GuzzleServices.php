@@ -6,6 +6,7 @@ namespace App\services;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class GuzzleServices
 {

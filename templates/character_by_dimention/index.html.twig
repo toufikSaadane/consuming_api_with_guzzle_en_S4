@@ -5,25 +5,22 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            {% for items in pagination %}
-                {% for item in items %}
-                    <div class="col-sm-4">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title"><strong><em>Name:  </em></strong>{{ item.name }}</h5>
-                                <p class="card-text"><strong><em>Status:  </em></strong>{{ item.status }}</p>
-                                <p class="card-text"><strong><em>Species:  </em></strong>{{ item.species }}</p>
-                                <p class="card-text"><strong><em>Gender:  </em></strong>{{ item.gender }}</p>
-                                <p class="card-text"><strong><em>Created at:  </em></strong>{{ item.created|date }}</p>
-                                <a href="{{ item.url }}" class="btn btn-primary">Go To see more details</a>
-                            </div>
+            {% for item in pagination %}
+                <div class="col-sm-4 margin-bottom-2">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ item.image }}" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><strong><em>Name: </em></strong>{{ item.name }}</h5>
+                            <p class="card-text"><strong><em>Status: </em></strong>{{ item.status }}</p>
+                            <p class="card-text"><strong><em>Species: </em></strong>{{ item.species }}</p>
+                            <p class="card-text"><strong><em>Gender: </em></strong>{{ item.gender }}</p>
+                            <p class="card-text"><strong><em>Created at: </em></strong>{{ item.created|date }}</p>
+                            <a href="{{ path('singleCharacter', {id:item.id}) }}" class="btn btn-primary">Go To see more details</a>
                         </div>
                     </div>
-                {% endfor %}
-                {{ knp_pagination_render(pagination) }}
+                </div>
             {% endfor %}
+            {{ knp_pagination_render(pagination) }}
         </div>
-
     </div>
 {% endblock %}

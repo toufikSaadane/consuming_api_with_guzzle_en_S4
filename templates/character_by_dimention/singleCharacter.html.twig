@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+{% block body %}
+        <div class="col-md-12">
+            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{{ singleCharacter.image }}" class="bd-placeholder-img" width="400" height=400">
+                </div>
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h4 class="card-title"><strong><bold>name: </bold></strong>{{ singleCharacter.name }}</h4>
+                    <p class="card-text"><strong><bold>species: </bold></strong>{{ singleCharacter.species}} </p>
+                    <p class="card-text"><strong><bold>gender: </bold></strong>{{ singleCharacter.gender}} </p>
+                    <p class="card-text"><strong><bold>origin: </bold></strong>{{ singleCharacter.origin.name }} </p>
+                    <p class="card-text"><strong><bold>location: </bold></strong>{{ singleCharacter.location.name }} </p>
+                    <p class="card-text"><strong><bold>status: </bold></strong>{{ singleCharacter.status }}</p>
+                    <p href="#" class="btn btn-primary btn-sm">PDF</p>
+                </div>
+
+            </div>
+        </div>
+{% endblock %}
